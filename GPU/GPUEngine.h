@@ -41,13 +41,13 @@ class GPUEngine {
 
 public:
 
-  GPUEngine(int nbThreadGroup,int nbThreadPerGroup,int gpuId,uint32_t maxFound);
+  GPUEngine(int nbThreadGroup, int nbThreadPerGroup, int gpuId, uint32_t maxFound);
   ~GPUEngine();
-  void SetParams(uint64_t dpMask,Int *distance,Int *px,Int *py);
-  void SetKangaroos(Int *px,Int *py,Int *d);
-  void GetKangaroos(Int *px,Int *py,Int *d);
-  void SetKangaroo(uint64_t kIdx,Int *px,Int *py,Int *d);
-  bool Launch(std::vector<ITEM> &hashFound,bool spinWait = false);
+  void SetParams(uint64_t dpMask, Int *distance, Int *px, Int *py);
+  void SetKangaroos(Int *px, Int *py, Int *d);
+  void GetKangaroos(Int *px, Int *py, Int *d);
+  void SetKangaroo(uint64_t kIdx, Int *px, Int *py, Int *d);
+  bool Launch(std::vector<ITEM> &hashFound, bool spinWait = false);
   void SetWildOffset(Int *offset);
   int GetNbThread();
   int GetGroupSize();
@@ -59,8 +59,8 @@ public:
 
   static void *AllocatePinnedMemory(size_t size);
   static void FreePinnedMemory(void *buff);
-  static void PrintCudaInfo();
-  static bool GetGridSize(int gpuId,int *x,int *y);
+  static void PrintHipInfo();  // Renomeado de PrintCudaInfo
+  static bool GetGridSize(int gpuId, int *x, int *y);
 
 private:
 
